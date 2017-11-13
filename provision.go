@@ -31,6 +31,7 @@ type Request struct {
 	EndTimestamp   int64             `json:"endTimestamp"`
 	Configuration  map[string]string `json:"configuration"`
 	Cycle          string            `json:"cycle"`
+	TransportKey   string            `json:"transportKey"`
 }
 
 type LogMessage struct {
