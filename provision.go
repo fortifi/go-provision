@@ -11,6 +11,7 @@ type BaseTransport struct {
 	CustomerFid     string              `json:"customerFid"`
 	SubscriptionFid string              `json:"subscriptionFid"`
 	Properties      []TransportProperty `json:"properties"`
+	TransportKey    string              `json:"transportKey"`
 }
 
 type Response struct {
@@ -31,7 +32,7 @@ type Request struct {
 	EndTimestamp   int64             `json:"endTimestamp"`
 	Configuration  map[string]string `json:"configuration"`
 	Cycle          string            `json:"cycle"`
-	TransportKey   string            `json:"transportKey"`
+	UpdateUrl      string            `json:"updateUrl"`
 }
 
 type LogMessage struct {
