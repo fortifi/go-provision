@@ -42,11 +42,11 @@ type LogMessage struct {
 }
 
 type TransportProperty struct {
-	Key         string `json:"key"`
-	Type        string `json:"type"`
-	StringValue string `json:"stringValue"`
-	FlagValue   bool   `json:"flagValue"`
-	CountValue  int64  `json:"countValue"`
+	Key         string                `json:"key"`
+	Type        TransportPropertyType `json:"type"`
+	StringValue string                `json:"stringValue"`
+	FlagValue   bool                  `json:"flagValue"`
+	CountValue  int64                 `json:"countValue"`
 }
 
 type ResponseType string
