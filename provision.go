@@ -16,14 +16,14 @@ type BaseTransport struct {
 
 type Response struct {
 	BaseTransport
-	Type    string       `json:"type"`
+	Type    ResponseType `json:"type"`
 	Message string       `json:"message"`
 	Log     []LogMessage `json:"log"`
 }
 
 type Request struct {
 	BaseTransport
-	Type           string            `json:"type"`
+	Type           RequestType       `json:"type"`
 	OrderFid       string            `json:"orderFid"`
 	ProductFid     string            `json:"productFid"`
 	PriceFid       string            `json:"priceFid"`
@@ -48,3 +48,18 @@ type TransportProperty struct {
 	FlagValue   bool   `json:"flagValue"`
 	CountValue  int64  `json:"countValue"`
 }
+
+type ResponseType string
+
+const RESPONSE_SUCCESS ResponseType = "success"
+const RESPONSE_PROCESSING ResponseType = "processing"
+const RESPONSE_FAILED ResponseType = "failed"
+
+type RequestType string
+
+const REQUEST_SETUP RequestType = "setup"
+const REQUEST_ACTIVATE RequestType = "activate"
+const REQUEST_SUSPEND RequestType = "suspend"
+const REQUEST_REACTIVATE RequestType = "reactivate"
+const REQUEST_CANCEL RequestType = "cancel"
+const REQUEST_END RequestType = "end"
