@@ -66,8 +66,8 @@ const REQUEST_END RequestType = "end"
 
 type TransportPropertyType string
 
-const TYPE_STRING TransportPropertyType = "string"
-const TYPE_FLAG TransportPropertyType = "flag"
-const TYPE_COUNT TransportPropertyType = "count"
-const RETURN_TYPE_INC_COUNT TransportPropertyType = "inc.count"
-const RETURN_TYPE_DEC_COUNT TransportPropertyType = "dec.count"
+const TRANSPROP_TYPE_STRING TransportPropertyType = "string"
+const TRANSPROP_TYPE_FLAG TransportPropertyType = "flag"
+const TRANSPROP_TYPE_COUNT TransportPropertyType = "count"
+const TRANSPROP_RETURN_TYPE_INC_COUNT TransportPropertyType = "inc.count"
+const TRANSPROP_RETURN_TYPE_DEC_COUNT TransportPropertyType = "dec.count"
