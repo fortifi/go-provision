@@ -1,6 +1,11 @@
 package provisioning
 
-import "time"
+import (
+	"time"
+	"crypto/md5"
+	"fmt"
+	"strings"
+)
 
 func Time() int64 {
 	return time.Now().UnixNano() / int64(time.Millisecond)
@@ -33,6 +38,11 @@ type Request struct {
 	Configuration  map[string]string `json:"configuration"`
 	Cycle          string            `json:"cycle"`
 	UpdateUrl      string            `json:"updateUrl"`
+	VerifyHash     string            `json:"verifyHash"`
+}
+
+func (r Request) IsVerified(provisioningKey string) bool {
+	return strings.ToLower(r.VerifyHash) == fmt.Sprintf("%x", md5.Sum([]byte(r.TransportKey+provisioningKey)))
 }
 
 type LogMessage struct {
