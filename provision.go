@@ -47,7 +47,7 @@ func (r Request) IsVerified(provisioningKey string) bool {
 
 type LogMessage struct {
 	Timestamp int64  `json:"timestamp"`
-	Type      string `json:"type"`
+	Type      LogType `json:"type"`
 	Message   string `json:"message"`
 }
 
@@ -81,3 +81,11 @@ const TRANSPROP_TYPE_FLAG TransportPropertyType = "flag"
 const TRANSPROP_TYPE_COUNT TransportPropertyType = "count"
 const TRANSPROP_RETURN_TYPE_INC_COUNT TransportPropertyType = "inc.count"
 const TRANSPROP_RETURN_TYPE_DEC_COUNT TransportPropertyType = "dec.count"
+
+type LogType string
+
+const LOG_DEBUG LogType = "debug"
+const LOG_INFO LogType = "info"
+const LOG_WARNING LogType = "warning"
+const LOG_ERROR LogType = "error"
+const LOG_SUCCESS LogType = "success"
