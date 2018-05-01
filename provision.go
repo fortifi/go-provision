@@ -5,6 +5,7 @@ import (
 	"crypto/md5"
 	"fmt"
 	"strings"
+	"errors"
 )
 
 func Time() int64 {
@@ -45,10 +46,19 @@ func (r Request) IsVerified(provisioningKey string) bool {
 	return strings.ToLower(r.VerifyHash) == fmt.Sprintf("%x", md5.Sum([]byte(r.TransportKey+provisioningKey)))
 }
 
+func (r Request) Property(propertyKey string) (*TransportProperty, error) {
+	for _, prop := range r.Properties {
+		if prop.Key == propertyKey {
+			return &prop, nil
+		}
+	}
+	return nil, errors.New("property not set")
+}
+
 type LogMessage struct {
-	Timestamp int64  `json:"timestamp"`
+	Timestamp int64   `json:"timestamp"`
 	Type      LogType `json:"type"`
-	Message   string `json:"message"`
+	Message   string  `json:"message"`
 }
 
 type TransportProperty struct {
